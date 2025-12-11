@@ -278,7 +278,7 @@ void save_mem()
 	}
 }
 
-void rest_mem()
+void load_mem()
 {
 	fptr = fopen(MEM_NAME,"rb");  // r for read, b for binary
 	if (fptr != NULL) {
@@ -332,7 +332,7 @@ static int consume_events( void )
       if ( event.key.keysym.sym == SDLK_F8 ) save_16k();
       if ( event.key.keysym.sym == SDLK_F9 ) load_16k();
       if ( event.key.keysym.sym == SDLK_F6 ) save_mem();
-      if ( event.key.keysym.sym == SDLK_F7 ) rest_mem();
+      if ( event.key.keysym.sym == SDLK_F7 ) load_mem();
       if ( event.key.keysym.sym == SDLK_BACKSPACE )
       {
         keyboard[ 0 ] &= ~1;
