@@ -1,10 +1,9 @@
 all: zx81
 
 zx81: zx81.o simz80.o
-	gcc -o zx81 zx81.o simz80.o `sdl-config --cflags --libs` -framework Cocoa
-
+	gcc -o zx81 zx81.o simz80.o `pkg-config --cflags --libs sdl` 
 zx81.o: zx81.c zx81rom.h
-	gcc -O3 -c zx81.c
+	gcc -O3 -c zx81.c `pkg-config --cflags --libs sdl`
 
 simz80.o: simz80.c simz80.h
 	gcc -O3 -c simz80.c
